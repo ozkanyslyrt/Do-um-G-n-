@@ -1,406 +1,833 @@
+```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nazlı ❤️</title>
+<title>Nazlı ❤️</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
 
-        body {
-            font-family: "Georgia", serif;
-            background: linear-gradient(135deg, #2b0716, #680d2d, #a51c4b);
-            color: white;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* Açılış ekranı */
+html{
+    scroll-behavior:smooth;
+}
 
-        .welcome {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 25px;
-            position: relative;
-        }
+body{
+    font-family:Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at top, #8f1745, #3b071d 45%, #17030d 100%);
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
 
-        .welcome-box {
-            max-width: 700px;
-            animation: fadeIn 2s ease;
-        }
+/* ---------------- AÇILIŞ ---------------- */
 
-        .heart {
-            font-size: 80px;
-            animation: heartbeat 1.5s infinite;
-        }
+#welcome{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:25px;
+    position:relative;
+    overflow:hidden;
+}
 
-        .welcome h1 {
-            font-size: 48px;
-            margin: 20px 0;
-        }
+.welcome-box{
+    position:relative;
+    z-index:5;
+    max-width:700px;
+    animation:fadeIn 2s ease;
+}
 
-        .welcome p {
-            font-size: 20px;
-            opacity: .9;
-            margin-bottom: 35px;
-        }
+.big-heart{
+    font-size:90px;
+    animation:heartbeat 1.5s infinite;
+    filter:drop-shadow(0 0 25px rgba(255,100,150,.6));
+}
 
-        .button {
-            border: none;
-            padding: 16px 35px;
-            border-radius: 50px;
-            background: white;
-            color: #9b1644;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: .3s;
-            box-shadow: 0 8px 30px rgba(0,0,0,.3);
-        }
+.welcome-box h1{
+    font-size:65px;
+    margin:15px 0;
+    text-shadow:0 5px 25px rgba(0,0,0,.4);
+}
 
-        .button:hover {
-            transform: scale(1.08);
-        }
+.welcome-box p{
+    font-size:22px;
+    opacity:.9;
+    margin-bottom:35px;
+}
 
-        /* Ana içerik */
+.surprise-button{
+    border:0;
+    padding:17px 38px;
+    border-radius:50px;
+    background:white;
+    color:#9b1644;
+    font-size:19px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 10px 35px rgba(0,0,0,.4);
+    transition:.3s;
+}
 
-        .content {
-            display: none;
-            padding: 60px 20px;
-            text-align: center;
-            animation: fadeIn 2s ease;
-        }
+.surprise-button:hover{
+    transform:scale(1.08);
+    box-shadow:0 15px 45px rgba(255,100,160,.35);
+}
 
-        .content h1 {
-            font-size: 55px;
-            margin-bottom: 20px;
-        }
+/* ---------------- ANA İÇERİK ---------------- */
 
-        .subtitle {
-            font-size: 22px;
-            margin-bottom: 50px;
-        }
+#content{
+    display:none;
+    text-align:center;
+    padding:70px 20px;
+    animation:fadeIn 2s ease;
+}
 
-        .message {
-            max-width: 750px;
-            margin: auto;
-            background: rgba(255,255,255,.12);
-            padding: 35px;
-            border-radius: 25px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 40px rgba(0,0,0,.2);
-        }
+.main-title{
+    font-size:60px;
+    margin-bottom:15px;
+    text-shadow:0 5px 30px rgba(0,0,0,.4);
+}
 
-        .message p {
-            font-size: 25px;
-            line-height: 1.7;
-        }
+.subtitle{
+    font-size:24px;
+    margin-bottom:55px;
+    opacity:.9;
+}
 
-        /* Fotoğraf galerisi */
+/* ---------------- MESAJ ---------------- */
 
-        .gallery-title {
-            margin-top: 80px;
-            margin-bottom: 30px;
-            font-size: 35px;
-        }
+.message-card{
+    max-width:800px;
+    margin:0 auto;
+    padding:45px 30px;
+    border-radius:30px;
 
-        .gallery {
-            max-width: 1000px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+    background:rgba(255,255,255,.11);
+    border:1px solid rgba(255,255,255,.2);
 
-        .photo {
-            height: 300px;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,.35);
-            transition: .4s;
-            background: rgba(255,255,255,.1);
-        }
+    backdrop-filter:blur(12px);
 
-        .photo:hover {
-            transform: scale(1.04) rotate(1deg);
-        }
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.35),
+        inset 0 0 30px rgba(255,255,255,.03);
+}
 
-        .photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.message-card h2{
+    font-size:34px;
+    margin-bottom:30px;
+}
 
-        /* Son mesaj */
+.message-text{
+    font-size:26px;
+    line-height:1.8;
+}
 
-        .final {
-            margin-top: 100px;
-            padding: 70px 20px;
-        }
+.highlight{
+    font-weight:bold;
+    font-size:30px;
+}
 
-        .final h2 {
-            font-size: 42px;
-            margin-bottom: 25px;
-        }
+/* ---------------- GALERİ ---------------- */
 
-        .final p {
-            font-size: 24px;
-            line-height: 1.8;
-        }
+.gallery-section{
+    margin-top:100px;
+}
 
-        /* Kalpler */
+.gallery-section h2{
+    font-size:38px;
+    margin-bottom:35px;
+}
 
-        .floating-heart {
-            position: fixed;
-            bottom: -50px;
-            font-size: 25px;
-            animation: floatUp 6s linear forwards;
-            pointer-events: none;
-            z-index: 999;
-        }
+.gallery{
+    max-width:1000px;
+    margin:auto;
 
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
 
-            50% {
-                transform: scale(1.2);
-            }
-        }
+.photo{
+    height:350px;
+    border-radius:25px;
+    overflow:hidden;
+    cursor:pointer;
 
-        @keyframes floatUp {
-            from {
-                transform: translateY(0);
-                opacity: 1;
-            }
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.4);
 
-            to {
-                transform: translateY(-110vh);
-                opacity: 0;
-            }
-        }
+    transition:.4s;
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+.photo:hover{
+    transform:scale(1.035) rotate(.5deg);
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.5);
+}
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
 
-        @media(max-width:600px) {
+.photo:hover img{
+    transform:scale(1.06);
+}
 
-            .welcome h1 {
-                font-size: 36px;
-            }
+/* ---------------- FOTOĞRAF TAM EKRAN ---------------- */
 
-            .content h1 {
-                font-size: 40px;
-            }
+.lightbox{
+    position:fixed;
+    inset:0;
 
-            .message p {
-                font-size: 20px;
-            }
+    background:rgba(0,0,0,.9);
 
-            .final h2 {
-                font-size: 32px;
-            }
+    display:none;
+    justify-content:center;
+    align-items:center;
 
-        }
+    z-index:1000;
 
-    </style>
+    padding:20px;
+}
+
+.lightbox img{
+    max-width:95%;
+    max-height:90vh;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 80px rgba(0,0,0,.7);
+}
+
+.close{
+    position:absolute;
+    top:20px;
+    right:30px;
+
+    font-size:45px;
+    cursor:pointer;
+}
+
+/* ---------------- SON ---------------- */
+
+.final-section{
+    margin-top:120px;
+    padding:80px 20px;
+}
+
+.final-heart{
+    font-size:75px;
+    animation:heartbeat 1.5s infinite;
+}
+
+.final-section h2{
+    font-size:48px;
+    margin:20px 0;
+}
+
+.final-section p{
+    font-size:25px;
+    line-height:1.8;
+}
+
+/* ---------------- UÇUŞAN KALPLER ---------------- */
+
+.floating-heart{
+    position:fixed;
+    bottom:-60px;
+
+    pointer-events:none;
+
+    z-index:999;
+
+    animation:floatUp linear forwards;
+}
+
+/* ---------------- KONFETİ ---------------- */
+
+.confetti{
+    position:fixed;
+
+    width:9px;
+    height:14px;
+
+    top:-20px;
+
+    z-index:998;
+
+    animation:confettiFall 4s linear forwards;
+}
+
+/* ---------------- MÜZİK ---------------- */
+
+.music-button{
+    position:fixed;
+
+    bottom:20px;
+    right:20px;
+
+    width:55px;
+    height:55px;
+
+    border:0;
+    border-radius:50%;
+
+    background:white;
+    color:#9b1644;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    z-index:1001;
+
+    box-shadow:0 5px 25px rgba(0,0,0,.4);
+}
+
+/* ---------------- ANİMASYONLAR ---------------- */
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.18);
+    }
+
+}
+
+@keyframes floatUp{
+
+    from{
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-115vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+@keyframes confettiFall{
+
+    from{
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ---------------- MOBİL ---------------- */
+
+@media(max-width:700px){
+
+    .welcome-box h1{
+        font-size:45px;
+    }
+
+    .big-heart{
+        font-size:70px;
+    }
+
+    .main-title{
+        font-size:42px;
+    }
+
+    .subtitle{
+        font-size:19px;
+    }
+
+    .message-card{
+        padding:35px 20px;
+    }
+
+    .message-card h2{
+        font-size:27px;
+    }
+
+    .message-text{
+        font-size:20px;
+    }
+
+    .highlight{
+        font-size:23px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .photo{
+        height:400px;
+    }
+
+    .final-section h2{
+        font-size:36px;
+    }
+
+    .final-section p{
+        font-size:20px;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-    <!-- AÇILIŞ -->
 
-    <section class="welcome" id="welcome">
+<!-- ================= AÇILIŞ ================= -->
 
-        <div class="welcome-box">
+<section id="welcome">
 
-            <div class="heart">❤️</div>
+    <div class="welcome-box">
 
-            <h1>Nazlı...</h1>
-
-            <p>
-                Sana küçük bir doğum günü sürprizim var...
-            </p>
-
-            <button class="button" onclick="openSurprise()">
-                Sürprizi Aç 🎁
-            </button>
-
+        <div class="big-heart">
+            ❤️
         </div>
-
-    </section>
-
-
-    <!-- ANA SAYFA -->
-
-    <section class="content" id="content">
 
         <h1>
-            İyi ki Doğdun Nazlı ❤️
+            Nazlı...
         </h1>
 
-        <div class="subtitle">
-            İyi ki varsın sevgilim... 💕
-        </div>
+        <p>
+            Sana küçük bir sürprizim var sevgilim. 💕
+        </p>
+
+        <button
+            class="surprise-button"
+            onclick="openSurprise()">
+
+            Sürprizi Aç 🎁
+
+        </button>
+
+    </div>
+
+</section>
 
 
-        <!-- MESAJ -->
 
-        <div class="message">
+<!-- ================= ANA İÇERİK ================= -->
 
-            <p>
-                Doğum günün kutlu olsun
-                <strong>BEBEĞİMMMM ❤️❤️❤️</strong>
-                <br><br>
+<section id="content">
 
-                Seni
-                <strong>ÇOKKK SEVİYORUM ❤️❤️❤️</strong>
-                <br>
+    <h1 class="main-title">
+        İyi ki Doğdun Nazlı ❤️
+    </h1>
 
-                İYİ Kİİİ VARSIN
-                <strong>SEVGİLİMMMM ❤️</strong>
-                <br>
-
-                ÖMRÜMMM ❤️❤️❤️❤️❤️
-            </p>
-
-        </div>
+    <div class="subtitle">
+        İyi ki varsın sevgilim... 💕
+    </div>
 
 
-        <!-- FOTOĞRAFLAR -->
 
-        <h2 class="gallery-title">
-            Bizden Güzel Anılar ❤️
+    <!-- MESAJ -->
+
+    <div class="message-card">
+
+        <h2>
+            Sana söylemek istediğim birkaç şey var... 💌
         </h2>
+
+        <div class="message-text">
+
+            Doğum günün kutlu olsun
+
+            <br>
+
+            <span class="highlight">
+                BEBEĞİMMMM ❤️❤️❤️
+            </span>
+
+            <br><br>
+
+            Seni
+
+            <span class="highlight">
+                ÇOKKK SEVİYORUM ❤️❤️❤️
+            </span>
+
+            <br>
+
+            İYİ Kİİİ VARSIN
+
+            <br>
+
+            <span class="highlight">
+                SEVGİLİMMMM ❤️
+            </span>
+
+            <br>
+
+            <span class="highlight">
+                ÖMRÜMMM ❤️❤️❤️❤️❤️
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- GALERİ -->
+
+    <div class="gallery-section">
+
+        <h2>
+            Birlikte Güzel Anılarımız 📸❤️
+        </h2>
+
 
         <div class="gallery">
 
-            <div class="photo">
-                <img src="./foto1.jpg" alt="Nazlı ve ben">
+            <div class="photo"
+                 onclick="openPhoto('foto1.jpg')">
+
+                <img
+                    src="./foto1.jpg"
+                    alt="Nazlı ve ben">
+
             </div>
 
-            <div class="photo">
-                <img src="./foto2.jpeg" alt="Nazlı ve ben">
+
+            <div class="photo"
+                 onclick="openPhoto('foto2.jpg')">
+
+                <img
+                    src="./foto2.jpg"
+                    alt="Nazlı ve ben">
+
             </div>
 
-            <div class="photo">
-                <img src="./foto3.jpeg" alt="Nazlı ve ben">
+
+            <div class="photo"
+                 onclick="openPhoto('foto3.jpg')">
+
+                <img
+                    src="./foto3.jpg"
+                    alt="Nazlı ve ben">
+
             </div>
 
-            <div class="photo">
-                <img src="./foto4.jpeg" alt="Nazlı ve ben">
+
+            <div class="photo"
+                 onclick="openPhoto('foto4.jpg')">
+
+                <img
+                    src="./foto4.jpg"
+                    alt="Nazlı ve ben">
+
             </div>
 
         </div>
 
+    </div>
 
-        <!-- SON -->
 
-        <div class="final">
 
-            <h2>
-                İyi ki hayatımdasın Nazlı ❤️
-            </h2>
+    <!-- SON -->
 
-            <p>
-                Seni çok ama çok seviyorum.
-                <br>
-                Nice güzel yaşlara birlikte... ❤️
-                <br><br>
-                ❤️ ❤️ ❤️ ❤️ ❤️
-            </p>
+    <div class="final-section">
 
+        <div class="final-heart">
+            ❤️
         </div>
 
-    </section>
+        <h2>
+            İyi ki hayatımdasın Nazlı
+        </h2>
+
+        <p>
+
+            Seni çok ama çok seviyorum.
+
+            <br>
+
+            Nice güzel yaşlara birlikte...
+
+            <br><br>
+
+            ❤️ 💗 💕 💖 💘 💝 ❤️
+
+        </p>
+
+    </div>
 
 
-    <!-- MÜZİK -->
-
-    <audio id="music" loop>
-        <source src="muzik.mp3" type="audio/mpeg">
-    </audio>
+</section>
 
 
-    <script>
 
-        function openSurprise() {
+<!-- ================= FOTOĞRAF BÜYÜTME ================= -->
 
-            document.getElementById("welcome").style.display = "none";
+<div
+    class="lightbox"
+    id="lightbox"
+    onclick="closePhoto()">
 
-            document.getElementById("content").style.display = "block";
+    <span class="close">
+        ×
+    </span>
 
-            const music = document.getElementById("music");
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Büyük fotoğraf">
 
-            music.play().catch(() => {
-                console.log("Müzik otomatik başlatılamadı.");
-            });
-
-            startHearts();
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
+</div>
 
 
-        function createHeart() {
 
-            const heart = document.createElement("div");
+<!-- ================= MÜZİK ================= -->
 
-            heart.classList.add("floating-heart");
+<audio
+    id="music"
+    loop>
 
-            const hearts = ["❤️", "💗", "💕", "💖", "💘", "💝"];
+    <source
+        src="muzik.mp3"
+        type="audio/mpeg">
 
-            heart.innerHTML =
-                hearts[Math.floor(Math.random() * hearts.length)];
-
-            heart.style.left =
-                Math.random() * 100 + "vw";
-
-            heart.style.fontSize =
-                (18 + Math.random() * 25) + "px";
-
-            heart.style.animationDuration =
-                (4 + Math.random() * 4) + "s";
-
-            document.body.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 8000);
-
-        }
+</audio>
 
 
-        function startHearts() {
+<button
+    class="music-button"
+    onclick="toggleMusic()">
 
-            setInterval(createHeart, 500);
+    🎵
 
-        }
+</button>
 
-    </script>
+
+
+<script>
+
+/* ---------------- SÜRPRİZ ---------------- */
+
+function openSurprise(){
+
+    document.getElementById("welcome").style.display="none";
+
+    document.getElementById("content").style.display="block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    startHearts();
+
+    startConfetti();
+
+    const music =
+        document.getElementById("music");
+
+    music.play().catch(()=>{});
+
+}
+
+
+
+/* ---------------- KALPLER ---------------- */
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className="floating-heart";
+
+    const hearts=[
+        "❤️",
+        "💗",
+        "💕",
+        "💖",
+        "💘",
+        "💝"
+    ];
+
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random()*hearts.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random()*100+"vw";
+
+    heart.style.fontSize =
+        (18+Math.random()*30)+"px";
+
+    heart.style.animationDuration =
+        (5+Math.random()*5)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },10000);
+
+}
+
+
+function startHearts(){
+
+    setInterval(
+        createHeart,
+        450
+    );
+
+}
+
+
+
+/* ---------------- KONFETİ ---------------- */
+
+function createConfetti(){
+
+    const confetti =
+        document.createElement("div");
+
+    confetti.className="confetti";
+
+    confetti.style.left =
+        Math.random()*100+"vw";
+
+    confetti.style.backgroundColor =
+        [
+            "#ff4d88",
+            "#ffccdd",
+            "#ffffff",
+            "#ffd166",
+            "#ff8fab"
+        ][
+            Math.floor(
+                Math.random()*5
+            )
+        ];
+
+    confetti.style.animationDuration =
+        (2+Math.random()*3)+"s";
+
+    document.body.appendChild(confetti);
+
+    setTimeout(()=>{
+        confetti.remove();
+    },5000);
+
+}
+
+
+function startConfetti(){
+
+    for(
+        let i=0;
+        i<100;
+        i++
+    ){
+
+        setTimeout(
+            createConfetti,
+            i*25
+        );
+
+    }
+
+}
+
+
+
+/* ---------------- FOTOĞRAF ---------------- */
+
+function openPhoto(src){
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const image =
+        document.getElementById("lightboxImage");
+
+    image.src=src;
+
+    lightbox.style.display="flex";
+
+}
+
+
+function closePhoto(){
+
+    document.getElementById(
+        "lightbox"
+    ).style.display="none";
+
+}
+
+
+
+/* ---------------- MÜZİK ---------------- */
+
+function toggleMusic(){
+
+    const music =
+        document.getElementById("music");
+
+    if(music.paused){
+
+        music.play();
+
+    }else{
+
+        music.pause();
+
+    }
+
+}
+
+</script>
+
 
 </body>
 </html>
+```
