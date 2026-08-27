@@ -1,19 +1,13 @@
-```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Nazlı ❤️</title>
 
-
 <style>
-
-/* GENEL */
 
 * {
     margin: 0;
@@ -27,492 +21,362 @@ html {
 
 body {
     font-family: Georgia, "Times New Roman", serif;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #8f1745,
-            #3b071d 45%,
-            #17030d 100%
-        );
-
+    background: radial-gradient(circle at top, #8f1745, #3b071d 45%, #17030d 100%);
     color: white;
-
     min-height: 100vh;
-
     overflow-x: hidden;
 }
-
 
 /* =========================
    AÇILIŞ
 ========================= */
 
 #welcome {
-
     min-height: 100vh;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     text-align: center;
-
     padding: 25px;
-
-    position: relative;
-
-    overflow: hidden;
 }
 
-
 .welcome-box {
-
-    position: relative;
-
-    z-index: 5;
-
     max-width: 700px;
-
     animation: fadeIn 2s ease;
 }
 
-
 .big-heart {
-
     font-size: 90px;
-
     animation: heartbeat 1.5s infinite;
-
-    filter:
-        drop-shadow(
-            0 0 25px
-            rgba(255,100,150,.6)
-        );
+    filter: drop-shadow(0 0 25px rgba(255,100,150,.6));
 }
-
 
 .welcome-box h1 {
-
     font-size: 65px;
-
     margin: 15px 0;
-
-    text-shadow:
-        0 5px 25px
-        rgba(0,0,0,.4);
+    text-shadow: 0 5px 25px rgba(0,0,0,.4);
 }
 
-
 .welcome-box p {
-
     font-size: 22px;
-
     opacity: .9;
-
     margin-bottom: 35px;
 }
 
-
-.surprise-button {
-
+.surprise-button,
+.secret-button,
+.love-button {
     border: none;
-
-    padding: 17px 38px;
-
+    padding: 17px 35px;
     border-radius: 50px;
-
     background: white;
-
     color: #9b1644;
-
-    font-size: 19px;
-
+    font-size: 18px;
     font-weight: bold;
-
     cursor: pointer;
-
-    box-shadow:
-        0 10px 35px
-        rgba(0,0,0,.4);
-
+    box-shadow: 0 10px 35px rgba(0,0,0,.4);
     transition: .3s;
 }
 
-
-.surprise-button:hover {
-
+.surprise-button:hover,
+.secret-button:hover,
+.love-button:hover {
     transform: scale(1.08);
-
 }
-
 
 /* =========================
    ANA İÇERİK
 ========================= */
 
 #content {
-
     display: none;
-
     text-align: center;
-
     padding: 70px 20px;
-
     animation: fadeIn 2s ease;
 }
 
-
 .main-title {
-
     font-size: 60px;
-
     margin-bottom: 15px;
-
-    text-shadow:
-        0 5px 30px
-        rgba(0,0,0,.4);
+    text-shadow: 0 5px 30px rgba(0,0,0,.4);
 }
-
 
 .subtitle {
-
     font-size: 24px;
-
     margin-bottom: 55px;
-
     opacity: .9;
 }
-
 
 /* =========================
    MESAJ
 ========================= */
 
 .message-card {
-
     max-width: 800px;
-
     margin: 0 auto;
-
     padding: 45px 30px;
-
     border-radius: 30px;
-
-    background:
-        rgba(255,255,255,.11);
-
-    border:
-        1px solid
-        rgba(255,255,255,.2);
-
+    background: rgba(255,255,255,.11);
+    border: 1px solid rgba(255,255,255,.2);
     backdrop-filter: blur(12px);
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.35);
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
 }
 
-
 .message-card h2 {
-
     font-size: 34px;
-
     margin-bottom: 30px;
 }
 
-
 .message-text {
-
     font-size: 26px;
-
     line-height: 1.8;
 }
 
-
 .highlight {
-
     font-weight: bold;
-
     font-size: 30px;
 }
-
 
 /* =========================
    GALERİ
 ========================= */
 
 .gallery-section {
-
     margin-top: 100px;
 }
 
-
 .gallery-section h2 {
-
     font-size: 38px;
-
     margin-bottom: 35px;
 }
 
-
 .gallery {
-
     max-width: 1000px;
-
     margin: auto;
-
     display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
+    grid-template-columns: repeat(2, 1fr);
     gap: 25px;
 }
 
-
-/*
-   FOTOĞRAF KUTUSU
-
-   Fotoğrafın tamamının
-   görünmesi için contain kullanıyoruz.
-*/
-
 .photo {
-
     height: 400px;
-
     border-radius: 25px;
-
     overflow: hidden;
-
     cursor: pointer;
-
-    background:
-        rgba(0,0,0,.25);
-
+    background: rgba(0,0,0,.25);
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
-    box-shadow:
-        0 15px 40px
-        rgba(0,0,0,.4);
-
+    box-shadow: 0 15px 40px rgba(0,0,0,.4);
     transition: .4s;
 }
 
-
 .photo:hover {
-
-    transform:
-        scale(1.035);
-
-    box-shadow:
-        0 20px 55px
-        rgba(0,0,0,.5);
+    transform: scale(1.035);
+    box-shadow: 0 20px 55px rgba(0,0,0,.5);
 }
 
-
-/*
-   FOTOĞRAFIN TAMAMI GÖRÜNECEK
-*/
-
 .photo img {
-
     width: 100%;
-
     height: 100%;
-
     object-fit: contain;
-
     display: block;
-
     transition: .5s;
 }
 
-
 .photo:hover img {
-
-    transform:
-        scale(1.03);
+    transform: scale(1.03);
 }
-
 
 /* =========================
    FOTOĞRAF BÜYÜTME
 ========================= */
 
 .lightbox {
-
     position: fixed;
-
     inset: 0;
-
-    background:
-        rgba(0,0,0,.92);
-
+    background: rgba(0,0,0,.92);
     display: none;
-
     justify-content: center;
-
     align-items: center;
-
     z-index: 1000;
-
     padding: 20px;
 }
 
-
 .lightbox img {
-
     max-width: 95%;
-
     max-height: 90vh;
-
     border-radius: 20px;
-
-    box-shadow:
-        0 20px 80px
-        rgba(0,0,0,.7);
+    box-shadow: 0 20px 80px rgba(0,0,0,.7);
 }
 
-
 .close {
-
     position: absolute;
-
     top: 20px;
-
     right: 30px;
-
     font-size: 45px;
-
     cursor: pointer;
 }
 
+/* =========================
+   GİZLİ MESAJ
+========================= */
+
+.secret-section {
+    margin: 100px auto 70px;
+    max-width: 800px;
+}
+
+#secretMessage {
+    display: none;
+    margin-top: 30px;
+    font-size: 24px;
+    line-height: 1.8;
+    animation: fadeIn 1s ease;
+}
+
+.secret-heart {
+    font-size: 35px;
+}
+
+/* =========================
+   SONSUZ SEVGİ
+========================= */
+
+.love-section {
+    margin: 80px auto;
+    max-width: 800px;
+}
+
+.love-section h2 {
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+#loveResult {
+    display: none;
+    margin-top: 35px;
+    font-size: 110px;
+    font-weight: bold;
+    animation: heartbeat 1.5s infinite;
+    text-shadow: 0 0 30px rgba(255,100,160,.6);
+}
+
+#loveResult span {
+    display: block;
+    font-size: 24px;
+    margin-top: -15px;
+}
+
+/* =========================
+   PASTA
+========================= */
+
+.cake-section {
+    margin: 100px auto 40px;
+    max-width: 800px;
+}
+
+.cake-section h2 {
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.cake {
+    font-size: 120px;
+    margin-top: 30px;
+}
+
+.candles {
+    margin-bottom: -25px;
+}
+
+.candle {
+    display: inline-block;
+    font-size: 48px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.candle:hover {
+    transform: scale(1.2);
+}
+
+#birthdayWish {
+    font-size: 23px;
+    margin-top: 25px;
+    min-height: 35px;
+    animation: fadeIn 1s ease;
+}
 
 /* =========================
    SON BÖLÜM
 ========================= */
 
 .final-section {
-
-    margin-top: 120px;
-
+    margin-top: 80px;
     padding: 80px 20px;
 }
 
-
 .final-heart {
-
     font-size: 75px;
-
-    animation:
-        heartbeat 1.5s infinite;
+    animation: heartbeat 1.5s infinite;
 }
 
-
 .final-section h2 {
-
     font-size: 48px;
-
     margin: 20px 0;
 }
 
-
 .final-section p {
-
     font-size: 25px;
-
     line-height: 1.8;
 }
-
 
 /* =========================
    UÇAN KALPLER
 ========================= */
 
 .floating-heart {
-
     position: fixed;
-
     bottom: -60px;
-
     pointer-events: none;
-
     z-index: 999;
-
-    animation:
-        floatUp
-        linear
-        forwards;
+    animation: floatUp linear forwards;
 }
-
 
 /* =========================
    KONFETİ
 ========================= */
 
 .confetti {
-
     position: fixed;
-
     width: 9px;
-
     height: 14px;
-
     top: -20px;
-
     z-index: 998;
-
-    animation:
-        confettiFall
-        4s
-        linear
-        forwards;
+    animation: confettiFall 4s linear forwards;
 }
-
 
 /* =========================
    MÜZİK
 ========================= */
 
 .music-button {
-
     position: fixed;
-
     bottom: 20px;
-
     right: 20px;
-
     width: 55px;
-
     height: 55px;
-
     border: none;
-
     border-radius: 50%;
-
     background: white;
-
     color: #9b1644;
-
     font-size: 22px;
-
     cursor: pointer;
-
     z-index: 1001;
-
-    box-shadow:
-        0 5px 25px
-        rgba(0,0,0,.4);
+    box-shadow: 0 5px 25px rgba(0,0,0,.4);
 }
-
 
 /* =========================
    ANİMASYONLAR
@@ -520,169 +384,113 @@ body {
 
 @keyframes heartbeat {
 
-    0%,
-    100% {
-
-        transform:
-            scale(1);
+    0%, 100% {
+        transform: scale(1);
     }
 
     50% {
-
-        transform:
-            scale(1.18);
+        transform: scale(1.18);
     }
-
 }
-
 
 @keyframes floatUp {
 
     from {
-
-        transform:
-            translateY(0)
-            rotate(0deg);
-
+        transform: translateY(0) rotate(0deg);
         opacity: 1;
     }
 
     to {
-
-        transform:
-            translateY(-115vh)
-            rotate(360deg);
-
+        transform: translateY(-115vh) rotate(360deg);
         opacity: 0;
     }
-
 }
-
 
 @keyframes confettiFall {
 
     from {
-
-        transform:
-            translateY(0)
-            rotate(0deg);
-
+        transform: translateY(0) rotate(0deg);
         opacity: 1;
     }
 
     to {
-
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-
+        transform: translateY(110vh) rotate(720deg);
         opacity: 0;
     }
-
 }
-
 
 @keyframes fadeIn {
 
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(25px);
+        transform: translateY(25px);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
-
 }
 
-
 /* =========================
-   TELEFON
+   MOBİL
 ========================= */
 
 @media(max-width:700px) {
 
-
     .welcome-box h1 {
-
         font-size: 45px;
     }
 
-
     .big-heart {
-
         font-size: 70px;
     }
 
-
     .main-title {
-
         font-size: 42px;
     }
 
-
     .subtitle {
-
         font-size: 19px;
     }
 
-
     .message-card {
-
         padding: 35px 20px;
     }
 
-
     .message-card h2 {
-
         font-size: 27px;
     }
 
-
     .message-text {
-
         font-size: 20px;
     }
 
-
     .highlight {
-
         font-size: 23px;
     }
 
-
     .gallery {
-
         grid-template-columns: 1fr;
     }
 
-
-    /*
-       Telefonda da fotoğrafın
-       tamamı görünecek.
-    */
-
     .photo {
-
         height: 450px;
     }
 
+    .love-section h2 {
+        font-size: 30px;
+    }
+
+    #loveResult {
+        font-size: 80px;
+    }
 
     .final-section h2 {
-
         font-size: 36px;
     }
 
-
     .final-section p {
-
         font-size: 20px;
     }
 
@@ -691,7 +499,6 @@ body {
 </style>
 
 </head>
-
 
 <body>
 
@@ -708,16 +515,13 @@ body {
             ❤️
         </div>
 
-
         <h1>
             Nazlı...
         </h1>
 
-
         <p>
             Sana küçük bir sürprizim var sevgilim. 💕
         </p>
-
 
         <button
             class="surprise-button"
@@ -730,7 +534,6 @@ body {
     </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -750,16 +553,13 @@ body {
     </div>
 
 
-
     <!-- MESAJ -->
 
     <div class="message-card">
 
-
         <h2>
             Sana söylemek istediğim birkaç şey var... 💌
         </h2>
-
 
         <div class="message-text">
 
@@ -767,39 +567,29 @@ body {
 
             <br>
 
-
             <span class="highlight">
                 BEBEĞİMMMM ❤️❤️❤️
             </span>
 
-
             <br><br>
 
-
             Seni
-
 
             <span class="highlight">
                 ÇOKKK SEVİYORUM ❤️❤️❤️
             </span>
 
-
             <br>
-
 
             İYİ Kİİİ VARSIN
 
-
             <br>
-
 
             <span class="highlight">
                 SEVGİLİMMMM ❤️
             </span>
 
-
             <br>
-
 
             <span class="highlight">
                 ÖMRÜMMM ❤️❤️❤️❤️❤️
@@ -810,16 +600,15 @@ body {
     </div>
 
 
-
-    <!-- GALERİ -->
+    <!-- =========================
+         GALERİ
+    ========================= -->
 
     <div class="gallery-section">
-
 
         <h2>
             Birlikte Güzel Anılarımız 📸❤️
         </h2>
-
 
         <div class="gallery">
 
@@ -835,7 +624,6 @@ body {
             </div>
 
 
-
             <div
                 class="photo"
                 onclick="openPhoto('./foto2.jpeg')">
@@ -847,7 +635,6 @@ body {
             </div>
 
 
-
             <div
                 class="photo"
                 onclick="openPhoto('./foto3.jpeg')">
@@ -857,7 +644,6 @@ body {
                     alt="Nazlı ve ben">
 
             </div>
-
 
 
             <div
@@ -876,8 +662,138 @@ body {
     </div>
 
 
+    <!-- =========================
+         GİZLİ MESAJ
+    ========================= -->
 
-    <!-- SON -->
+    <div class="secret-section">
+
+        <button
+            class="secret-button"
+            onclick="showSecret()">
+
+            Buraya tıklama 🙈
+
+        </button>
+
+
+        <p id="secretMessage">
+
+            <span class="secret-heart">
+                ❤️
+            </span>
+
+            <br>
+
+            Aslında söylemek istediğim tek bir şey var...
+
+            <br>
+
+            Seni her şeyden çok seviyorum.
+
+            <br>
+
+            ❤️❤️❤️❤️❤️
+
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         SONSUZ SEVGİ
+    ========================= -->
+
+    <div class="love-section">
+
+        <h2>
+            Seni ne kadar seviyorum? ❤️
+        </h2>
+
+
+        <button
+            class="love-button"
+            onclick="showLove()">
+
+            Öğrenmek için tıkla 💕
+
+        </button>
+
+
+        <div id="loveResult">
+
+            ∞
+
+            <span>
+                KERE SEVİYORUM ❤️
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         PASTA
+    ========================= -->
+
+    <div class="cake-section">
+
+        <h2>
+            Bir dilek tut sevgilim 🎂
+        </h2>
+
+
+        <div class="cake">
+
+            <div class="candles">
+
+                <span
+                    class="candle"
+                    onclick="blowCandle(this)">
+
+                    🕯️
+
+                </span>
+
+
+                <span
+                    class="candle"
+                    onclick="blowCandle(this)">
+
+                    🕯️
+
+                </span>
+
+
+                <span
+                    class="candle"
+                    onclick="blowCandle(this)">
+
+                    🕯️
+
+                </span>
+
+            </div>
+
+
+            🎂
+
+        </div>
+
+
+        <p id="birthdayWish">
+
+            Mumlara tıkla sevgilim ❤️
+
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         SON
+    ========================= -->
 
     <div class="final-section">
 
@@ -913,7 +829,6 @@ body {
 </section>
 
 
-
 <!-- =========================
      FOTOĞRAF BÜYÜTME
 ========================= -->
@@ -936,7 +851,6 @@ body {
 
 
 </div>
-
 
 
 <!-- =========================
@@ -963,120 +877,76 @@ body {
 </button>
 
 
-
 <script>
 
-
-/* SÜRPRİZİ AÇ */
+/* =========================
+   SÜRPRİZ
+========================= */
 
 function openSurprise() {
 
+    document.getElementById("welcome").style.display = "none";
 
-    document.getElementById(
-        "welcome"
-    ).style.display = "none";
-
-
-    document.getElementById(
-        "content"
-    ).style.display = "block";
-
+    document.getElementById("content").style.display = "block";
 
     window.scrollTo({
-
         top: 0,
-
         behavior: "smooth"
-
     });
-
 
     startHearts();
 
-
     startConfetti();
-
 
     const music =
         document.getElementById("music");
 
-
     music.play().catch(() => {});
-
 
 }
 
 
-
-/* KALPLER */
+/* =========================
+   UÇAN KALPLER
+========================= */
 
 function createHeart() {
-
 
     const heart =
         document.createElement("div");
 
-
     heart.className =
         "floating-heart";
 
-
     const hearts = [
-
         "❤️",
         "💗",
         "💕",
         "💖",
         "💘",
         "💝"
-
     ];
-
 
     heart.innerHTML =
         hearts[
             Math.floor(
-                Math.random()
-                * hearts.length
+                Math.random() * hearts.length
             )
         ];
 
-
     heart.style.left =
-        Math.random()
-        * 100
-        + "vw";
-
+        Math.random() * 100 + "vw";
 
     heart.style.fontSize =
-        (
-            18
-            +
-            Math.random()
-            * 30
-        )
-        + "px";
-
+        (18 + Math.random() * 30) + "px";
 
     heart.style.animationDuration =
-        (
-            5
-            +
-            Math.random()
-            * 5
-        )
-        + "s";
+        (5 + Math.random() * 5) + "s";
 
-
-    document.body.appendChild(
-        heart
-    );
-
+    document.body.appendChild(heart);
 
     setTimeout(() => {
-
         heart.remove();
-
     }, 10000);
 
 }
@@ -1092,27 +962,20 @@ function startHearts() {
 }
 
 
-
-/* KONFETİ */
+/* =========================
+   KONFETİ
+========================= */
 
 function createConfetti() {
 
-
     const confetti =
-        document.createElement(
-            "div"
-        );
-
+        document.createElement("div");
 
     confetti.className =
         "confetti";
 
-
     confetti.style.left =
-        Math.random()
-        * 100
-        + "vw";
-
+        Math.random() * 100 + "vw";
 
     confetti.style.backgroundColor =
         [
@@ -1123,31 +986,17 @@ function createConfetti() {
             "#ff8fab"
         ][
             Math.floor(
-                Math.random()
-                * 5
+                Math.random() * 5
             )
         ];
 
-
     confetti.style.animationDuration =
-        (
-            2
-            +
-            Math.random()
-            * 3
-        )
-        + "s";
+        (2 + Math.random() * 3) + "s";
 
-
-    document.body.appendChild(
-        confetti
-    );
-
+    document.body.appendChild(confetti);
 
     setTimeout(() => {
-
         confetti.remove();
-
     }, 5000);
 
 }
@@ -1155,85 +1004,132 @@ function createConfetti() {
 
 function startConfetti() {
 
-
     for (
         let i = 0;
         i < 100;
         i++
     ) {
 
-
         setTimeout(
-
             createConfetti,
-
             i * 25
-
         );
-
 
     }
 
 }
 
 
-
-/* FOTOĞRAF BÜYÜTME */
+/* =========================
+   FOTOĞRAF
+========================= */
 
 function openPhoto(src) {
 
-
     const lightbox =
-        document.getElementById(
-            "lightbox"
-        );
-
+        document.getElementById("lightbox");
 
     const image =
-        document.getElementById(
-            "lightboxImage"
-        );
-
+        document.getElementById("lightboxImage");
 
     image.src = src;
 
-
-    lightbox.style.display =
-        "flex";
+    lightbox.style.display = "flex";
 
 }
 
 
 function closePhoto() {
 
-
     document.getElementById(
         "lightbox"
-    ).style.display =
-        "none";
+    ).style.display = "none";
 
 }
 
 
+/* =========================
+   GİZLİ MESAJ
+========================= */
 
-/* MÜZİK */
+function showSecret() {
+
+    const message =
+        document.getElementById(
+            "secretMessage"
+        );
+
+    message.style.display = "block";
+
+}
+
+
+/* =========================
+   SONSUZ SEVGİ
+========================= */
+
+function showLove() {
+
+    const result =
+        document.getElementById(
+            "loveResult"
+        );
+
+    result.style.display = "block";
+
+}
+
+
+/* =========================
+   MUM
+========================= */
+
+let candlesBlown = 0;
+
+
+function blowCandle(candle) {
+
+    if (
+        candle.innerHTML.trim() === "🕯️"
+    ) {
+
+        candle.innerHTML = "💨";
+
+        candlesBlown++;
+
+    }
+
+
+    if (candlesBlown === 3) {
+
+        document.getElementById(
+            "birthdayWish"
+        ).innerHTML =
+            "Dileğin gerçek olsun sevgilim ❤️❤️❤️";
+
+        startConfetti();
+
+    }
+
+}
+
+
+/* =========================
+   MÜZİK
+========================= */
 
 function toggleMusic() {
-
 
     const music =
         document.getElementById(
             "music"
         );
 
-
     if (music.paused) {
 
         music.play();
 
-    }
-
-    else {
+    } else {
 
         music.pause();
 
@@ -1246,4 +1142,3 @@ function toggleMusic() {
 
 </body>
 </html>
-```
